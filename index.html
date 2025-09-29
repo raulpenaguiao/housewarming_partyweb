@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Warming Party - Join Us!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ede5d5 0%, #345695 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(237, 229, 213, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(45deg, #345695, #fdc409);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        .flyer-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .flyer {
+            background: #ede5d5;
+            border: 3px solid #345695;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            transform: rotate(-1deg);
+            transition: transform 0.3s ease;
+        }
+
+        .flyer:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .flyer .party-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #345695;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .flyer .address {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: #345695;
+        }
+
+        .flyer .date-time {
+            font-size: 1.3rem;
+            background: #fdc409;
+            padding: 10px 20px;
+            border-radius: 25px;
+            margin: 15px 0;
+            color: #345695;
+            font-weight: bold;
+        }
+
+        .flyer .transport {
+            font-size: 1rem;
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .flyer .join-us {
+            font-size: 1.5rem;
+            color: #345695;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .map-container {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .registration-section h2 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #345695;
+            box-shadow: 0 0 0 3px rgba(52, 86, 149, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #345695, #fdc409);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(52, 86, 149, 0.3);
+        }
+
+        .decline-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #666, #999);
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        .decline-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 16px rgba(102, 102, 102, 0.3);
+            background: linear-gradient(45deg, #777, #aaa);
+        }
+
+        .success-message {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .decline-message {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .registrations-list {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(237, 229, 213, 0.7);
+            border-radius: 10px;
+        }
+
+        .registrations-list h3 {
+            color: #345695;
+            margin-bottom: 15px;
+        }
+
+        .registration-item {
+            background: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #345695;
+        }
+
+        .decline-item {
+            background: #f8f9fa;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #666;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .flyer .party-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏠 House Warming Party 🎉</h1>
+            <p>You're invited to celebrate with us!</p>
+        </div>
+
+        <div class="content">
+            <div class="flyer-section">
+                <div class="flyer">
+                    <div class="party-title">Party</div>
+                    <div class="address">IN DEN ZIEGELHÖFEN 82<br>BASEL</div>
+                    <div class="party-title" style="font-size: 1.5rem; margin: 20px 0;">House Warming</div>
+                    <div class="date-time">18 OCTOBER 2025<br>STARTS 17:00</div>
+                    <div class="transport">
+                        <strong>ÖPNV - TRAM 8</strong><br>
+                        STOP: IM LANGEN LOH
+                    </div>
+                    <div class="join-us">JOIN US!! 🎊</div>
+                </div>
+
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2693.8967891234567!2d7.5885794!3d47.5445685!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4791b9441e729c77%3A0x1234567890abcdef!2sIn%20den%20Ziegelh%C3%B6fen%2082%2C%204059%20Basel%2C%20Switzerland!5e0!3m2!1sen!2sch!4v1234567890123!5m2!1sen!2sch"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="registration-section">
+                <h2>🎯 RSVP - Register Here</h2>
+                <form id="registrationForm">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additionalGuests">Additional Guests</label>
+                        <input type="number" id="additionalGuests" name="additionalGuests" min="0" max="10" value="0">
+                        <small style="color: #666; font-size: 0.9rem;">How many people are you bringing along?</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dietaryRestrictions">Dietary Restrictions / Comments</label>
+                        <textarea id="dietaryRestrictions" name="dietaryRestrictions" placeholder="Please let us know about any allergies, dietary restrictions, or special requests..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">🎉 Count Me In!</button>
+                    <button type="button" class="decline-btn" onclick="submitDecline()">😔 I Cannot Make It</button>
+                </form>
+
+                <div id="successMessage" class="success-message">
+                    <strong>Success!</strong> Your registration has been submitted. We can't wait to see you at the party! 🎊
+                </div>
+
+                <div id="declineMessage" class="decline-message">
+                    <strong>Thank you for letting us know.</strong> We'll miss you at the party, but we understand! 💔
+                </div>
+
+                <div id="registrationsList" class="registrations-list" style="display: none;">
+                    <h3>📋 Current Registrations</h3>
+                    <div id="registrationsContent"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // In-memory data structure to simulate server storage
+        let registrations = [];
+        let declines = [];
+
+        // Form submission handler
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = {
+                id: Date.now(), // Simple ID generation
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                additionalGuests: parseInt(document.getElementById('additionalGuests').value) || 0,
+                dietaryRestrictions: document.getElementById('dietaryRestrictions').value,
+                timestamp: new Date().toISOString(),
+                status: 'attending'
+            };
+
+            // Add to our data structure (simulating server storage)
+            registrations.push(formData);
+
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            document.getElementById('declineMessage').style.display = 'none';
+
+            // Update registrations display
+            updateRegistrationsList();
+
+            // Clear form
+            document.getElementById('registrationForm').reset();
+
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+
+        // Decline submission handler
+        function submitDecline() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            if (!name || !email) {
+                alert('Please fill in your name and email to let us know you cannot make it.');
+                return;
+            }
+
+            const declineData = {
+                id: Date.now(),
+                name: name,
+                email: email,
+                timestamp: new Date().toISOString(),
+                status: 'declined'
+            };
+
+            // Add to declines array
+            declines.push(declineData);
+
+            // Show decline message
+            document.getElementById('declineMessage').style.display = 'block';
+            document.getElementById('successMessage').style.display = 'none';
+
+            // Update registrations display
+            updateRegistrationsList();
+
+            // Clear form
+            document.getElementById('registrationForm').reset();
+
+            // Scroll to decline message
+            document.getElementById('declineMessage').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+
+            // Hide decline message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('declineMessage').style.display = 'none';
+            }, 5000);
+        }
+
+        // Function to update the registrations list display
+        function updateRegistrationsList() {
+            const listContainer = document.getElementById('registrationsList');
+            const contentContainer = document.getElementById('registrationsContent');
+            
+            if (registrations.length > 0 || declines.length > 0) {
+                listContainer.style.display = 'block';
+                
+                const totalGuests = registrations.reduce((sum, reg) => sum + reg.additionalGuests + 1, 0);
+                
+                let html = `
+                    <p><strong>Attending:</strong> ${registrations.length} people (${totalGuests} total guests)</p>
+                    <p><strong>Cannot Make It:</strong> ${declines.length} people</p>
+                    <hr style="margin: 15px 0; border: 1px solid #dee2e6;">
+                `;
+
+                // Add attending registrations
+                html += registrations.map(reg => `
+                    <div class="registration-item">
+                        <strong>${reg.name}</strong> (${reg.email})<br>
+                        <small>
+                            Guests: +${reg.additionalGuests} | 
+                            Registered: ${new Date(reg.timestamp).toLocaleString()}
+                            ${reg.dietaryRestrictions ? `<br>Notes: ${reg.dietaryRestrictions}` : ''}
+                        </small>
+                    </div>
+                `).join('');
+
+                // Add declines
+                html += declines.map(decline => `
+                    <div class="decline-item">
+                        <strong>${decline.name}</strong> (${decline.email}) - <em>Cannot attend</em><br>
+                        <small>Declined: ${new Date(decline.timestamp).toLocaleString()}</small>
+                    </div>
+                `).join('');
+
+                contentContainer.innerHTML = html;
+            }
+        }
+
+        // Add some visual enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add floating animation to the flyer
+            const flyer = document.querySelector('.flyer');
+            let floatDirection = 1;
+            
+            setInterval(() => {
+                floatDirection *= -1;
+                flyer.style.transform = `rotate(${floatDirection * 0.5}deg) translateY(${floatDirection * 2}px)`;
+            }, 3000);
+        });
+
+        // Console log for demonstration (in real implementation, this would be sent to server)
+        function logRegistrationData() {
+            if (registrations.length > 0 || declines.length > 0) {
+                console.log('Current registrations data structure:');
+                console.log('Attending:', JSON.stringify(registrations, null, 2));
+                console.log('Declined:', JSON.stringify(declines, null, 2));
+            }
+        }
+
+        // Call this to see the data structure in console
+        setInterval(logRegistrationData, 10000); // Log every 10 seconds if there are registrations
+    </script>
+</body>
+</html>
