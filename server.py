@@ -18,6 +18,11 @@ def favicon():
         mimetype='image/vnd.microsoft.icon'
     )
 
+
+@app.route('/answers')
+def serve_answers():
+    return send_file('registration.json')
+
 @app.route('/scripts/<path:filename>')
 def serve_scripts(filename):
     return send_from_directory('scripts', filename)
