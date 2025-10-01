@@ -133,19 +133,20 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.registration-section h2 {
-    color: #333;
-    margin-bottom: 1px;
-    font-size: 1.8rem;
+.registration-section > h2 {
     text-align: center;
+    color: #333;
 }
 
-.registration-section h2a {
-    color: #333;
-    margin-bottom: 30px;
+#deadline_title {
+    margin-bottom: 5px;
+    font-size: 1.8rem;
+}
+
+#deadline_text {
+    margin-bottom: 8px;
     font-size: 1rem;
     font-weight: bold;
-    text-align: center;
 }
 
 .form-group {
