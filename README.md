@@ -22,3 +22,4 @@ This tool helps you create a personalized website for your housewarming party. S
 
 ## Requirements
 - Python 3.x
+- Flask

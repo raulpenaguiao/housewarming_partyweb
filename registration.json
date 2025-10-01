@@ -1,0 +1,52 @@
+[
+  {
+    "servertimestamp": "2025-10-01 09:23:51"
+  },
+  {
+    "servertimestamp": "2025-10-01 09:29:53"
+  },
+  {
+    "servertimestamp": "2025-10-01 10:08:21"
+  },
+  {
+    "servertimestamp": "2025-10-01 10:09:05"
+  },
+  {
+    "servertimestamp": "2025-10-01 10:10:33"
+  },
+  {
+    "servertimestamp": "2025-10-01 10:12:03"
+  },
+  {
+    "servertimestamp": "2025-10-01 10:14:13"
+  },
+  {
+    "servertimestamp": "2025-10-01 10:18:34"
+  },
+  {
+    "servertimestamp": "2025-10-01 10:19:16"
+  },
+  {
+    "servertimestamp": "2025-10-01 10:19:47"
+  },
+  {
+    "id": 1759306847170,
+    "name": "dqw",
+    "email": "dqwqd@c.de",
+    "additionalGuests": 1,
+    "dietaryRestrictions": "qdw",
+    "timestamp": "2025-10-01T08:20:47.170Z",
+    "status": "attending",
+    "servertimestamp": "2025-10-01 10:20:47"
+  },
+  {
+    "id": 1759306928467,
+    "name": "daw",
+    "email": "dqwqd@c.de",
+    "additionalGuests": 1,
+    "dietaryRestrictions": "dq",
+    "timestamp": "2025-10-01T08:22:08.467Z",
+    "status": "attending",
+    "servertimestamp": "2025-10-01 10:22:08"
+  }
+]

@@ -31,11 +31,10 @@ def serve_styles(filename):
 def submit():
     try:
         # Get form data
-        data = request.form.to_dict()
-        
+        data = request.get_json()
         # Add timestamp
-        data['timestamp'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        
+        data['servertimestamp'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
         # Load existing registrations
         # Create file if it doesn't exist
         if not os.path.exists('registration.json'):
@@ -53,7 +52,7 @@ def submit():
         # Save updated registrations
         with open('registration.json', 'w') as f:
             json.dump(registrations, f, indent=2)
-            
+            f.flush()
         return {"status": "success", "message": "Registration saved successfully"}
     
     except Exception as e:

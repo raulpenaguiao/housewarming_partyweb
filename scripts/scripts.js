@@ -108,5 +108,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Console log for demonstration (in real implementation, this would be sent to server)
 function sendRegistrationDataToServer(action) {
-    console.log('current action:', action);
+    return fetch('/submit', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(action)
+    })
+    .then(response => response.json())
+    .then(data => console.log('Success:', data))
+    .catch(error => {
+        console.error('Error:', error);
+        throw error;
+    });
 }
