@@ -23,7 +23,7 @@
         }
 
         .header {
-            background: linear-gradient(45deg, #345695, #fdc409);
+            background: linear-gradient(45deg, #345695, #ecbd66);
             color: white;
             text-align: center;
             padding: 40px 20px;
@@ -88,7 +88,7 @@
 
         .flyer .date-time {
             font-size: 1.3rem;
-            background: #fdc409;
+            background: #ecbd66;
             padding: 10px 20px;
             border-radius: 25px;
             margin: 15px 0;
@@ -166,7 +166,7 @@
 
         .submit-btn {
             width: 100%;
-            background: linear-gradient(45deg, #345695, #fdc409);
+            background: linear-gradient(45deg, #345695, #ecbd66);
             color: white;
             padding: 15px;
             border: none;
