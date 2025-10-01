@@ -9,7 +9,18 @@ A simple web application to create and host your housewarming party website.
 git clone [repository-url]
 ```
 
-2. Run the server
+2. Add private information
+
+Create a file named `private_info.json` in the root directory with the following structure:
+```private_info.json
+{
+    "address": "Your address",
+    "transport": "<strong>transport options</strong><br> STOP: station",
+    "time": "day<br>STARTS time"
+}
+```
+
+3. Run the server
 ```bash
 python3 server.py
 ```

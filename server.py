@@ -8,7 +8,25 @@ app = Flask(__name__)
 # Serve the index.html file
 @app.route('/')
 def home():
-    return send_file('index.html')
+    try:
+        try:
+            with open('private_info.json', 'r') as f:
+                private_info = json.load(f)
+        except FileNotFoundError:
+            private_info = {"address": "loading address...", "transport": "loading transportation options...", "time": "loading time..."}
+
+        with open('index.html', 'r', encoding='utf-8') as f:
+            content = f.read()
+        print(f"Serving index.html with content length: {len(content)}")
+        # Replace placeholders with private info
+        for key, value in private_info.items():
+            print(f"Replacing placeholder: ${key}$ with value: {value}")
+            content = content.replace(f"${key}$", str(value))
+            
+        return content
+    except Exception as e:
+        print(f"Error: {str(e)}")
+        return f"Error: {str(e)}", 500
 
 @app.route('/favicon.ico')
 def favicon():
